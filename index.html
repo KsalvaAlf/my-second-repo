@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7fb">
+  <title>Daylight — Time To Lock In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Time To Lock In">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span>daylight</span>
+      </a>
+
+      <div class="sidebar-label">YOUR SPACE</div>
+      <button class="nav-item active" type="button" aria-current="page">
+        <span class="nav-icon" aria-hidden="true">▦</span>
+        My schedule
+      </button>
+
+      <div class="sidebar-note">
+        <span class="note-sparkle" aria-hidden="true">✦</span>
+        <p>A little structure can make room for a lot of good things.</p>
+      </div>
+
+      <div class="sidebar-footer">
+        <span class="avatar" aria-hidden="true">D</span>
+        <span><strong>Your planner</strong><small>Just for you</small></span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark" aria-hidden="true">✳</span> daylight</div>
+        <div class="today-label"><span class="status-dot"></span> YOUR PERSONAL PLANNER</div>
+        <button class="notification-status" id="notification-status" type="button" title="Notification permission status">
+          <span aria-hidden="true">♧</span>
+          <span id="notification-label">Notifications off</span>
+        </button>
+      </header>
+
+      <section class="page-heading">
+        <div>
+          <p class="eyebrow" id="date-eyebrow">YOUR DAY, YOUR WAY</p>
+          <h1>Make today <span>yours.</span></h1>
+          <p class="heading-description">A clear plan for the things that matter to you.</p>
+        </div>
+        <div class="date-picker-wrap">
+          <label class="sr-only" for="schedule-date">Choose a date</label>
+          <button class="date-nav" id="previous-day" type="button" aria-label="Previous day">‹</button>
+          <input id="schedule-date" type="date">
+          <button class="date-nav" id="next-day" type="button" aria-label="Next day">›</button>
+        </div>
+      </section>
+
+      <section class="schedule-layout">
+        <div class="schedule-column">
+          <div class="section-heading">
+            <div>
+              <h2>Your schedule</h2>
+              <p id="schedule-summary">A little progress goes a long way.</p>
+            </div>
+            <span class="task-count" id="task-count">0 plans</span>
+          </div>
+
+          <div class="timeline" id="timeline">
+            <div class="empty-state" id="empty-state">
+              <span class="empty-illustration" aria-hidden="true">☼</span>
+              <h3>Start with one small thing</h3>
+              <p>Your plans will show up here. Add a task and make the day yours.</p>
+              <button class="text-button" id="empty-add-button" type="button">＋ Add your first plan</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="form-card" id="plan-form-card">
+          <div class="form-card-heading">
+            <span class="form-icon" aria-hidden="true">✦</span>
+            <div>
+              <p class="eyebrow">MAKE A LITTLE PLAN</p>
+              <h2 id="form-title">Add a plan</h2>
+            </div>
+          </div>
+
+          <form id="plan-form">
+            <label class="field-label" for="task-title">What do you want to do?</label>
+            <input id="task-title" name="title" type="text" maxlength="80" placeholder="e.g. Focus time, take a walk..." required>
+
+            <label class="field-label" for="task-notes">A note for yourself <span class="optional">OPTIONAL</span></label>
+            <textarea id="task-notes" name="notes" rows="2" maxlength="180" placeholder="Add a little detail..."></textarea>
+
+            <div class="time-fields">
+              <div>
+                <label class="field-label" for="task-start">Starts</label>
+                <input id="task-start" name="start" type="time" required>
+              </div>
+              <span class="time-divider" aria-hidden="true">→</span>
+              <div>
+                <label class="field-label" for="task-end">Ends</label>
+                <input id="task-end" name="end" type="time" required>
+              </div>
+            </div>
+
+            <div class="color-field">
+              <label class="field-label" for="task-color">Note colour</label>
+              <div class="color-control">
+                <input id="task-color" name="color" type="color" value="#a9c9bb" aria-label="Choose a note colour">
+                <span id="color-name">Sage green</span>
+              </div>
+            </div>
+
+            <label class="reminder-toggle" for="task-reminder">
+              <span class="toggle-copy">
+                <strong>Remind me when it starts</strong>
+                <small>Get a notification at start time</small>
+              </span>
+              <input id="task-reminder" name="reminder" type="checkbox">
+              <span class="toggle-ui" aria-hidden="true"></span>
+            </label>
+
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+            <div class="form-actions">
+              <button class="cancel-button" id="cancel-edit" type="button" hidden>Cancel</button>
+              <button class="submit-button" id="submit-button" type="submit"><span>＋</span> Add to my day</button>
+            </div>
+          </form>
+        </aside>
+      </section>
+
+      <footer class="page-footer"><span>✳</span> Take it one thing at a time.</footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
